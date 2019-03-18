@@ -1,9 +1,9 @@
 package com.learning.impl.datastructure;
 
-import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.learning.exception.StackUnderflowException;
 import com.learning.idatastructure.Stack;
 
 public class StackListImpl<T> implements Stack<T> {
@@ -52,7 +52,7 @@ public class StackListImpl<T> implements Stack<T> {
 	}
 
 	@Override
-	public T pop() {
+	public T pop() throws StackUnderflowException {
 		if(!isEmpty()) {
 			synchronized (root) {
 				count.decrementAndGet();
@@ -61,7 +61,7 @@ public class StackListImpl<T> implements Stack<T> {
 				return element;
 			}
 		}else {
-			throw new EmptyStackException();
+			throw new StackUnderflowException("Stack is empty");
 		}
 	}
 
