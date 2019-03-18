@@ -4,6 +4,10 @@ import java.util.Iterator;
 
 import com.learning.exception.StackUnderflowException;
 
+/**
+ * @author aadiyogis
+ *
+ */
 public interface Stack<T> {
 	/**
 	 * Add element to stack.

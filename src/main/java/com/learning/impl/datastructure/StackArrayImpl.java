@@ -47,7 +47,7 @@ public class StackArrayImpl<T> implements Stack<T> {
 	 */
 	@Override
 	public T pop() throws StackUnderflowException {
-		if (this.isEmpty()) {
+		if (isEmpty()) {
 			throw new StackUnderflowException("current stack is empty");
 		}
 		return elements[top--];
@@ -76,16 +76,16 @@ public class StackArrayImpl<T> implements Stack<T> {
 	@Override
 	public <E> Iterator<T> iterator() {
 		return new Iterator<T>() {
-			int count = -1;
+			int count = top;
 
 			@Override
 			public boolean hasNext() {
-				return count < top;
+				return count > -1;
 			}
 
 			@Override
 			public T next() {
-				return elements[++count];
+				return elements[count--];
 			}
 		};
 	}
