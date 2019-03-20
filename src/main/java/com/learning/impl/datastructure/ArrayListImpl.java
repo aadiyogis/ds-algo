@@ -21,13 +21,33 @@ public class ArrayListImpl<T> implements List<T> {
 
 	@Override
 	public T remove(T t) {
-		for (int i = 0; i < top; i++) {
+		T val = null;
+		for (int i = 0; i <= top; i++) {
 			if (arrList[i] == t) {
+				val = arrList[i];
 				arrList[i] = null;
-				return t;
+				arrList = squash(arrList);
+				top--;
 			}
 		}
-		return null;
+		return val;
+	}
+
+	private T[] squash(T[] arrList) {
+		int size = arrList.length;
+		T[] arrTemp = (T[]) (new Object[size - 1]);
+		boolean flag = true;
+		for (int i = 0; i < size; i++) {
+			if (flag && arrList[i] != null) {
+				arrTemp[i] = arrList[i];
+			} else {
+				flag = false;
+				if (i + 1 < size) {
+					arrTemp[i] = arrList[i + 1];
+				}
+			}
+		}
+		return arrTemp;
 	}
 
 	@Override
@@ -57,4 +77,9 @@ public class ArrayListImpl<T> implements List<T> {
 		};
 	}
 
+	private void printArr(T[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i].toString());
+		}
+	}
 }
