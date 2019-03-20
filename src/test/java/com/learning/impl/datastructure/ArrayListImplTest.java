@@ -1,7 +1,6 @@
 package com.learning.impl.datastructure;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Iterator;
 
