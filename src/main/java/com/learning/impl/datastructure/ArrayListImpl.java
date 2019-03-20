@@ -77,9 +77,19 @@ public class ArrayListImpl<T> implements List<T> {
 		};
 	}
 
+	@Override
+	public T get(int index) {
+		if (index > top + 1 || index < 0) {
+			throw new IndexOutOfBoundsException();
+		} else {
+			return arrList[index];
+		}
+	}
+
 	private void printArr(T[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i].toString());
 		}
 	}
+
 }

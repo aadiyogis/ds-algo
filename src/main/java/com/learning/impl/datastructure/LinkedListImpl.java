@@ -39,15 +39,15 @@ public class LinkedListImpl<T> implements List<T> {
 	public T remove(T t) {
 		Node<T> pointer = head;
 		T val = null;
-		if(isEmpty()) {
+		if (isEmpty()) {
 			throw new NoSuchElementException();
 		} else {
 			Node<T> oldPointer = pointer;
-			while(pointer!=null) {
-				if(pointer.element == t) {
-					if(oldPointer == head) {
+			while (pointer != null) {
+				if (pointer.element == t) {
+					if (oldPointer == head) {
 						head = oldPointer.next;
-					}else {
+					} else {
 						oldPointer.next = pointer.next;
 					}
 					val = pointer.element;
@@ -89,6 +89,21 @@ public class LinkedListImpl<T> implements List<T> {
 				return val;
 			}
 		};
+	}
+
+	@Override
+	public T get(int index) {
+		T val;
+		if (index < 0 || index > size) {
+			throw new IndexOutOfBoundsException();
+		} else {
+			Node<T> pointer = head;
+			for(int i=0; i<index; i++) {
+				pointer = pointer.next;
+			}
+			val = pointer.element;
+		}
+		return val;
 	}
 
 }

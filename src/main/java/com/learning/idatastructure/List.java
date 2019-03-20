@@ -41,4 +41,11 @@ public interface List<T> {
 	 * @return Iterator instance on the current list
 	 */
 	public Iterator<T> iterator();
+	
+	/**
+	 * Returns element present on index.
+	 * @param index
+	 * @return
+	 */
+	public T get(int index);
 }
