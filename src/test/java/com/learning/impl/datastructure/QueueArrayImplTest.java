@@ -52,11 +52,7 @@ class QueueArrayImplTest {
 		queue.enque("BISHOP");
 
 		String[] arr = new String[5];
-		int i = 0;
-		Iterator<String> iterator = queue.iterator();
-		while (iterator.hasNext()) {
-			arr[i++] = iterator.next();
-		}
+		extractToArray(arr);
 
 		assertEquals("KING", arr[0]);
 		assertEquals("QUEEN", arr[1]);
@@ -64,6 +60,14 @@ class QueueArrayImplTest {
 		assertEquals("KNIGHT", arr[3]);
 		assertEquals("BISHOP", arr[4]);
 
+	}
+
+	private void extractToArray(String[] arr) {
+		int i = 0;
+		Iterator<String> iterator = queue.iterator();
+		while (iterator.hasNext()) {
+			arr[i++] = iterator.next();
+		}
 	}
 
 	@Test
@@ -79,5 +83,12 @@ class QueueArrayImplTest {
 
 		val = queue.dequeue();
 		assertEquals("QUEEN", val);
+
+		String[] arr = new String[3];
+		extractToArray(arr);
+		assertEquals("ROOK", arr[0]);
+		assertEquals("KNIGHT", arr[1]);
+		assertEquals("BISHOP", arr[2]);
+
 	}
 }
