@@ -43,7 +43,8 @@ public interface List<T> {
 	public Iterator<T> iterator();
 	
 	/**
-	 * Returns element present on index.
+	 * Returns element present on index i.
+	 * Index is starting from 0
 	 * @param index
 	 * @return
 	 */
