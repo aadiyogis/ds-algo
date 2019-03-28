@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.learning.idatastructure.List;
 
-public class LinkedListImplTest {
+class LinkedListImplTest {
 
 	private List<String> stringList;
 
