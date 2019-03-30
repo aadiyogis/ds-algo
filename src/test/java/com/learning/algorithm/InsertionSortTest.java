@@ -1,6 +1,6 @@
 /**
-* 
-*/
+ * 
+ */
 package com.learning.algorithm;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,13 +11,13 @@ import org.junit.jupiter.api.Test;
  * @author aadiyogis
  *
  */
-class SelectionSortTest {
+class InsertionSortTest {
 
 	@Test
 	void test() {
 		String[] arr = { "KING", "QUEEN", "KNIGHT", "BISHOP", "ROOK" };
-		SelectionSort<String> selectionSort = new SelectionSort<>();
-		selectionSort.sort(arr);
+		InsertionSort<String> insertionSort = new InsertionSort<>();
+		insertionSort.sort(arr);
 		assertEquals("BISHOP", arr[0]);
 		assertEquals("KING", arr[1]);
 		assertEquals("KNIGHT", arr[2]);
